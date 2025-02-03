@@ -14,4 +14,6 @@ public class LogementDTO {
     private String nom;
     @NotBlank(message = "L'adresse est obligatoire")
     private String adresse;
+    @NotBlank(message = "La description est obligatoire")
+    private String description;
 }
