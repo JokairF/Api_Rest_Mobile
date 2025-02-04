@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface PieceMapper {
-    PieceMapper INSTANCE = Mappers.getMapper(PieceMapper.class);
 
     PieceDTO toDTO(Piece piece);
     Piece toEntity(PieceDTO pieceDTO);

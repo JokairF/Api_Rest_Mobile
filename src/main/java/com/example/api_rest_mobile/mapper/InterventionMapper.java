@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface InterventionMapper {
-    InterventionMapper INSTANCE = Mappers.getMapper(InterventionMapper.class);
 
     InterventionDTO toDTO(Intervention intervention);
     Intervention toEntity(InterventionDTO interventionDTO);

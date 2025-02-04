@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface PhotoMapper {
-    PhotoMapper INSTANCE = Mappers.getMapper(PhotoMapper.class);
 
     PhotoDTO toDTO(Photo photo);
     Photo toEntity(PhotoDTO photoDTO);

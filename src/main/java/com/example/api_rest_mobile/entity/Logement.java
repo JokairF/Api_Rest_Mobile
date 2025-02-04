@@ -3,7 +3,6 @@ package com.example.api_rest_mobile.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.List;
 
 @Entity
 @Table(name = "logement")
@@ -18,6 +17,4 @@ public class Logement {
     private String adresse;
     private String description;
 
-    @OneToMany(mappedBy = "logement", cascade = CascadeType.ALL)
-    private List<Piece> pieces;
 }

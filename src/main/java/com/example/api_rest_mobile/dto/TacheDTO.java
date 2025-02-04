@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TacheDTO {
     private Long id;
-    private Long pieceId;
     private String description;
-    private Boolean status;
+    private Boolean statut;
+    private Long pieceId;
 }

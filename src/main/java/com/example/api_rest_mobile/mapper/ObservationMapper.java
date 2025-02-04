@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface ObservationMapper {
-    ObservationMapper INSTANCE = Mappers.getMapper(ObservationMapper.class);
 
     ObservationDTO toDTO(Observation observation);
     Observation toEntity(ObservationDTO observationDTO);

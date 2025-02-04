@@ -34,4 +34,6 @@ public class Intervention {
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
+
+    private Integer nombreLitsFaits;
 }

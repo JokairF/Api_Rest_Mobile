@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface RapportPDFMapper {
-    RapportPDFMapper INSTANCE = Mappers.getMapper(RapportPDFMapper.class);
 
     RapportPDFDTO toDTO(RapportPDF rapportPDF);
     RapportPDF toEntity(RapportPDFDTO rapportPDFDTO);
