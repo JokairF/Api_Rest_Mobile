@@ -13,5 +13,5 @@ public class UtilisateurDTO {
     private String nom;
     private String email;
     private String motDePasse;
-    private Role role; // Utilisation de l'enum pour garantir les valeurs ADMIN, INTERVENANT, etc.
+    private Role role; // Utilisation de l'enum pour garantir les valeurs ADMIN, INTERVENANT
 }

@@ -13,18 +13,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+    private final AuthenticationManager authenticationManager;
+
     @Autowired
-    private AuthenticationManager authenticationManager;
+    public AuthController(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<String> authenticateUser(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(), loginRequest.getPassword()
+                        loginRequest.getEmail(),
+                        loginRequest.getMotDePasse()
                 )
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        // Pour l'instant, on renvoie simplement un message.
+        // Pour l'instant, renvoyer un message de succès
         return ResponseEntity.ok("Utilisateur authentifié avec succès");
     }
 }
