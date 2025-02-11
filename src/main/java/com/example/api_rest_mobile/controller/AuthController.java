@@ -57,6 +57,7 @@ public class AuthController {
                     utilisateurDTO.getId(),
                     utilisateurDTO.getEmail(),
                     utilisateurDTO.getNom(),
+                    utilisateurDTO.getRole().name(),
                     jwt
             );
 

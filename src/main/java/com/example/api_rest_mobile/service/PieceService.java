@@ -19,7 +19,7 @@ public class PieceService {
 
     public Piece getPieceById(Long id) {
         return pieceRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Pièce non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Pièce non trouvée par l'id : " + id));
     }
 
     public List<Piece> getPiecesByLogementId(Long logementId) {
@@ -32,7 +32,7 @@ public class PieceService {
 
     public Piece updatePiece(Long id, Piece pieceDetails) {
         Piece piece = pieceRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Pièce non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Pièce non trouvée par l'id impossible de update: " + id));
         piece.setNom(pieceDetails.getNom());
         return pieceRepository.save(piece);
     }

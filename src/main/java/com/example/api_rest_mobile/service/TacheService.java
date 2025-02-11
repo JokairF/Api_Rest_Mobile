@@ -26,7 +26,7 @@ public class TacheService {
 
     public TacheDTO getTacheById(Long id) {
         Tache tache = tacheRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tâche non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Tâche non trouvée id : " + id));
         return tacheMapper.toDTO(tache);
     }
 
@@ -45,7 +45,7 @@ public class TacheService {
 
     public TacheDTO updateTache(Long id, TacheDTO tacheDetails) {
         Tache tache = tacheRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tâche non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Tâche non trouvée pour update id : " + id));
         tache.setDescription(tacheDetails.getDescription());
         tache.setStatut(tacheDetails.getStatut());
         // Si besoin de mettre à jour le pieceId, vous pouvez le faire ici.

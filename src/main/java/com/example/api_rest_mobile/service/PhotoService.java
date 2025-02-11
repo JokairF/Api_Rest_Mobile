@@ -19,7 +19,7 @@ public class PhotoService {
 
     public Photo getPhotoById(Long id) {
         return photoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Photo non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Photo non trouvée par l'id : " + id));
     }
 
     public List<Photo> getPhotosByObservationId(Long observationId) {
@@ -32,7 +32,7 @@ public class PhotoService {
 
     public Photo updatePhoto(Long id, Photo photoDetails) {
         Photo photo = photoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Photo non trouvée"));
+                .orElseThrow(() -> new RuntimeException("Photo non trouvée par l'id update non possible: " + id));
         photo.setChemin(photoDetails.getChemin());
         return photoRepository.save(photo);
     }

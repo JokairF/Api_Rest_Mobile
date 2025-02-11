@@ -20,7 +20,7 @@ public class UtilisateurService {
 
     public Utilisateur getUtilisateurById(Long id) {
         return utilisateurRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé par l'id : " + id));
     }
 
     public Utilisateur createUtilisateur(Utilisateur utilisateur) {
@@ -29,7 +29,7 @@ public class UtilisateurService {
 
     public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {
         Utilisateur utilisateur = utilisateurRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé par l'id pour update : " + id));
         utilisateur.setNom(utilisateurDetails.getNom());
         utilisateur.setEmail(utilisateurDetails.getEmail());
         utilisateur.setMotDePasse(utilisateurDetails.getMotDePasse());
@@ -43,6 +43,6 @@ public class UtilisateurService {
 
     public Utilisateur findByEmail(String email) {
         return utilisateurRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé par email : " + email));
     }
 }
