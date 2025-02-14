@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/logements/**").permitAll()
+                        .requestMatchers("/api/logements/**").permitAll() // OK
                         .anyRequest().authenticated()
                 )
                 .httpBasic(basic -> {
