@@ -3,7 +3,6 @@ package com.example.api_rest_mobile.controller;
 import com.example.api_rest_mobile.dto.ErrorResponse;
 import com.example.api_rest_mobile.dto.LoginRequest;
 import com.example.api_rest_mobile.dto.LoginResponse;
-import com.example.api_rest_mobile.dto.UtilisateurDTO;
 import com.example.api_rest_mobile.entity.Utilisateur;
 import com.example.api_rest_mobile.security.JwtProvider;
 import com.example.api_rest_mobile.service.UtilisateurService;
@@ -46,13 +45,13 @@ public class AuthController {
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            // Générer le token JWT
+            // Génére le token JWT
             String jwt = jwtProvider.generateToken(authentication);
 
-            // Récupérer l'utilisateur réel depuis la base de données
+            // Récupére l'utilisateur réel depuis la base de données
             Utilisateur utilisateurDTO = utilisateurService.findByEmail(loginRequest.getEmail());
 
-            // Construire et renvoyer la réponse
+            // Construit et renvoyer la réponse
             LoginResponse loginResponse = new LoginResponse(
                     utilisateurDTO.getId(),
                     utilisateurDTO.getEmail(),
