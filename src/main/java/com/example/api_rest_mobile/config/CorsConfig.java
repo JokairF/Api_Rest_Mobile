@@ -16,7 +16,6 @@ public class CorsConfig {
                 registry.addMapping("/api/**")
                         .allowedOrigins("*")  // autoriser toutes les origines
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
-                //
             }
         };
     }
