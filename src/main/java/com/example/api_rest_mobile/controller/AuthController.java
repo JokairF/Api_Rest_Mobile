@@ -16,6 +16,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.api_rest_mobile.config.DataInitializer.logger;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -35,6 +37,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
+        logger.info("Tentative de connexion : {}", loginRequest.getEmail());
         try {
             // Authentification avec Spring Security
             Authentication authentication = authenticationManager.authenticate(
@@ -44,12 +47,15 @@ public class AuthController {
                     )
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
+            logger.info("Connexion réussie : {}", loginRequest.getEmail());
 
             // Génére le token JWT
             String jwt = jwtProvider.generateToken(authentication);
 
-            // Récupére l'utilisateur réel depuis la base de données
+            // Récupére l'utilisateur depuis la base de données
             Utilisateur utilisateurDTO = utilisateurService.findByEmail(loginRequest.getEmail());
+
+            logger.info("Token JWT généré pour l'utilisateur: {}", loginRequest.getEmail());
 
             // Construit et renvoyer la réponse
             LoginResponse loginResponse = new LoginResponse(
@@ -63,6 +69,8 @@ public class AuthController {
             return ResponseEntity.ok(loginResponse);
 
         } catch (AuthenticationException ex) {
+            logger.warn("Échec de l'authentification pour l'utilisateur: {}, raison: {}",
+                    loginRequest.getEmail(), ex.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new ErrorResponse("Identifiants invalides"));
         }

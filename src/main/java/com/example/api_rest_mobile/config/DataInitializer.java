@@ -15,7 +15,7 @@ import java.util.Optional;
 @Configuration
 public class DataInitializer {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
+    public static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
 
     @Bean
     public CommandLineRunner initData(UtilisateurRepository utilisateurRepository,
