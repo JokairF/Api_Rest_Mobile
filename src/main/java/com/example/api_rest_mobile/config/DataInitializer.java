@@ -27,7 +27,6 @@ public class DataInitializer {
                 Utilisateur admin = new Utilisateur();
                 admin.setNom("admin");
                 admin.setEmail(adminEmail);
-                // Chiffrer le mot de passe avant de le sauvegarder
                 admin.setMotDePasse(passwordEncoder.encode("admin123")); // Mot de passe par défaut
                 admin.setRole(Role.ADMIN);
 

@@ -23,8 +23,7 @@ public class UtilisateurService {
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé par l'id : " + id));
     }
 
-    public Utilisateur createUtilisateur(Utilisateur utilisateur) {
-        return utilisateurRepository.save(utilisateur);
+    public Utilisateur createUtilisateur(Utilisateur utilisateur) {return utilisateurRepository.save(utilisateur);
     }
 
     public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LogementRepository extends JpaRepository<Logement, Long> {
+
+    Logement findByAdresse(String adresse);
 }

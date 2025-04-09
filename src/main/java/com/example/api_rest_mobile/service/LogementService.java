@@ -51,6 +51,11 @@ public class LogementService {
         return logementMapper.toDTO(updatedLogement);
     }
 
+    public LogementDTO findByAdresse(String adresse) {
+        Logement findByAdresse = logementRepository.findByAdresse(adresse);
+        return logementMapper.toDTO(findByAdresse);
+    }
+
     public void deleteLogement(Long id) {
         logementRepository.deleteById(id);
     }

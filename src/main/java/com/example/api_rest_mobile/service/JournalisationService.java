@@ -30,15 +30,6 @@ public class JournalisationService {
         return journalisationRepository.save(journalisation);
     }
 
-    public Journalisation updateJournalisation(Long id, Journalisation journalisationDetails) {
-        Journalisation journalisation = journalisationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Journalisation non trouvée"));
-        journalisation.setAction(journalisationDetails.getAction());
-        journalisation.setDate(journalisationDetails.getDate());
-        journalisation.setDetails(journalisationDetails.getDetails());
-        return journalisationRepository.save(journalisation);
-    }
-
     public void deleteJournalisation(Long id) {
         journalisationRepository.deleteById(id);
     }

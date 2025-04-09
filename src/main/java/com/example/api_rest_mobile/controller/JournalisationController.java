@@ -35,11 +35,6 @@ public class JournalisationController {
         return journalisationService.createJournalisation(journalisation);
     }
 
-    @PutMapping("/{id}")
-    public Journalisation updateJournalisation(@PathVariable Long id, @RequestBody Journalisation journalisationDetails) {
-        return journalisationService.updateJournalisation(id, journalisationDetails);
-    }
-
     @DeleteMapping("/{id}")
     public void deleteJournalisation(@PathVariable Long id) {
         journalisationService.deleteJournalisation(id);

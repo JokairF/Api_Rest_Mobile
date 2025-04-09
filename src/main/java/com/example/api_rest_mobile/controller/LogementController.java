@@ -47,4 +47,10 @@ public class LogementController {
         logementService.deleteLogement(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/adresse/{adresse}")
+    public ResponseEntity<LogementDTO> findByAdresse(@PathVariable String adresse) {
+        LogementDTO logement = logementService.findByAdresse(adresse);
+        return ResponseEntity.ok(logement);
+    }
 }
